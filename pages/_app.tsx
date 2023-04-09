@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <ThemeProvider attribute="class">
       <div className="dark:bg-nft-dark bg-white min-h-screen relative">
         <Navbar />
-        <div className="pt-[65px] pb-[366px]">
+        <div className="pt-[65px] pb-[366px] md:pb-[548px]">
           <Component {...pageProps} />
         </div>
         <Footer />
