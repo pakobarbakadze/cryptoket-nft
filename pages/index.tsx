@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import HotBids from "@/components/HotBids";
 import TopSellers from "@/components/TopSellers";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             parentStyles="justifyStart mb-6 h-72 sm:h-60 p-12 xs:p-4 xs:h-44 rounded-3xl"
           />
           <TopSellers />
+          <HotBids />
         </div>
       </div>
     </main>
