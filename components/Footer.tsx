@@ -31,7 +31,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ heading, items }) => (
 const Footer = () => {
   const { theme } = useTheme();
   return (
-    <footer className="flexCenter flex-col absolute bottom-0 w-full border-t dark:border-nft-black-1 border-nft-gray-1 sm:pt-8 pt-16 pb-4">
+    <footer className="flexCenter flex-col absolute bottom-0 w-full border-t dark:border-nft-black-1 border-nft-gray-1 sm:pt-8 pt-16 pb-8">
       <div className="w-full minmd:w-4/5 flex flex-row md:flex-col sm:px-4 px-16">
         <div className="flexStart flex-1 flex-col">
           <Logo></Logo>
