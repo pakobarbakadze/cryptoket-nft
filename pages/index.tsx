@@ -1,6 +1,6 @@
 const Home = () => (
   <main>
-    <h1 className="text-center text-4xl font-semibold">Cryptoket</h1>
+    <h1>Cryptoket</h1>
   </main>
 );
 
