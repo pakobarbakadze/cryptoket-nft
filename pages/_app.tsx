@@ -10,9 +10,9 @@ import "@/styles/globals.css";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
-      <div className="dark:bg-nft-dark bg-white min-h-screen">
+      <div className="dark:bg-nft-dark bg-white min-h-screen relative">
         <Navbar />
-        <div className="pt-[65px]">
+        <div className="pt-[65px] pb-[366px]">
           <Component {...pageProps} />
         </div>
         <Footer />

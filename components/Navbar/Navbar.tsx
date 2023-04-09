@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import Link from "next/link";
 import Image from "next/image";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
@@ -10,6 +9,7 @@ import images from "../../assets";
 import ButtonGroup from "./ButtonGroup";
 import MenuItems from "./MenuItems";
 import { useRouter } from "next/router";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -26,20 +26,7 @@ const Navbar = () => {
 
   return (
     <nav className="flexBetween w-full fixed z-10 p-4 flex-row border-b dark:bg-nft-dark bg-white dark:border-nft-black-1 border-nft-gray-1">
-      <div className="flex flex-1 flex-row justify-start">
-        <Link href={"/"}>
-          <div className="flexCenter cursor-pointer">
-            <Image
-              src={images.logo02}
-              style={{ objectFit: "contain", width: 32, height: 32 }}
-              alt="Logo"
-            ></Image>
-            <p className="dark:text-white text-nft-black-1 font-semibold text-lg ml-1 md:hidden">
-              CryptoKet
-            </p>
-          </div>
-        </Link>
-      </div>
+      <Logo isNav></Logo>
 
       <div className="mr-2">
         <NoSSR>
