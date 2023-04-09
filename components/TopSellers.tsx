@@ -71,6 +71,7 @@ const TopSellers = () => {
                   src={images.left}
                   style={{ objectFit: "contain" }}
                   fill
+                  sizes="auto"
                   alt="leftArrow"
                   className={theme === "light" ? "filter invert" : ""}
                 />
@@ -83,6 +84,7 @@ const TopSellers = () => {
                   src={images.right}
                   style={{ objectFit: "contain" }}
                   fill
+                  sizes="auto"
                   alt="leftArrow"
                   className={theme === "light" ? "filter invert" : ""}
                 />

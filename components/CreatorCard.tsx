@@ -29,6 +29,7 @@ const CreatorCard: React.FC<CreatorCard> = ({
             src={creatorImg}
             style={{ objectFit: "cover" }}
             fill
+            sizes="auto"
             alt="creatorName"
             className="rounded-full"
           />
@@ -37,6 +38,7 @@ const CreatorCard: React.FC<CreatorCard> = ({
               src={images.tick}
               style={{ objectFit: "contain" }}
               fill
+              sizes="auto"
               alt="tick"
             />
           </div>
