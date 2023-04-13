@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import Button from "../Button";
+import { NFTContext } from "@/context/NFTContext";
 
 interface ButtonGroupProps {
   setActive: (arg0: string) => void;
@@ -11,8 +13,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
   router,
   setIsOpen,
 }) => {
-  //   const { connectWallet, currentAccount } = useContext(NFTContext);
-  const currentAccount = false;
+  const { connectWallet, currentAccount } = useContext(NFTContext);
 
   return currentAccount ? (
     <Button
@@ -28,8 +29,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
     <Button
       btnName="Connect"
       classStyles="mx-2 rounded-xl"
-      //   handleClick={connectWallet}
-      handleClick={() => {}}
+      handleClick={connectWallet}
     />
   );
 };

@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { NFTContext } from "@/context/NFTContext";
 
 import images from "../assets";
 
@@ -11,6 +14,7 @@ interface NFTCard {
 }
 
 const NFTCard: React.FC<NFTCard> = ({ nft, onProfilePage }) => {
+  const { nftCurrency } = useContext(NFTContext);
   const query: any = nft;
 
   return (
@@ -34,7 +38,7 @@ const NFTCard: React.FC<NFTCard> = ({ nft, onProfilePage }) => {
               {nft.price} <span className="normal"></span>
             </p>
             <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xs minlg:text-lg">
-              hehe
+              {nftCurrency}
             </p>
           </div>
         </div>

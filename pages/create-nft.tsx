@@ -1,14 +1,18 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback, useContext } from "react";
+import { useRouter } from "next/router";
 import { useDropzone } from "react-dropzone";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import Loader from "@/components/Loader";
 
 import images from "../assets";
+import { NFTContext } from "../context/NFTContext";
 
 const CreateNFT = () => {
+  const { uploadToIPFS, createNFT, isLoadingNFT } = useContext(NFTContext);
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, setFormInput] = useState({
     name: "",
@@ -16,8 +20,19 @@ const CreateNFT = () => {
     price: "",
   });
   const { theme } = useTheme();
+  const router = useRouter();
 
-  const onDrop = useCallback(() => {}, []);
+  if (isLoadingNFT) {
+    <div className="flexStart min-h-screen">
+      <Loader />
+    </div>;
+  }
+
+  const onDrop = useCallback(async (acceptedFile: any) => {
+    const url = await uploadToIPFS(acceptedFile[0]);
+    console.log(url);
+    setFileUrl(url);
+  }, []);
 
   const {
     getRootProps,
@@ -58,7 +73,7 @@ const CreateNFT = () => {
               <input {...getInputProps()} />
               <div className="flexCenter flex-col text-center">
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold text-xl">
-                  JPG, PNG, GIF, SVG, WEBM. Max 100mb.
+                  JPG, PNG, GIF, SVG, WEBM Max 100mb.
                 </p>
                 <div className="my-12 w-full flex justify-center">
                   <Image
@@ -89,31 +104,31 @@ const CreateNFT = () => {
           inputType="input"
           title="Name"
           placeholder="NFT Name"
-          handleClick={(
-            e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-          ) => setFormInput({ ...formInput, name: e.target.value })}
+          handleClick={(e) =>
+            setFormInput({ ...formInput, name: e.target.value })
+          }
         />
         <Input
           inputType="textarea"
           title="Description"
           placeholder="NFT Description"
-          handleClick={(
-            e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-          ) => setFormInput({ ...formInput, description: e.target.value })}
+          handleClick={(e) =>
+            setFormInput({ ...formInput, description: e.target.value })
+          }
         />
         <Input
           inputType="number"
           title="Price"
           placeholder="NFT Price"
-          handleClick={(
-            e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-          ) => setFormInput({ ...formInput, price: e.target.value })}
+          handleClick={(e) =>
+            setFormInput({ ...formInput, price: e.target.value })
+          }
         />
         <div className="mt-10 w-full flex justify-center">
           <Button
             btnName="Create NFT"
             classStyles="rounded-xl"
-            handleClick={() => {}}
+            handleClick={() => createNFT(formInput, fileUrl, router)}
           />
         </div>
       </div>
