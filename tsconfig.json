@@ -22,8 +22,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "context/constants.js",
-    "context/NFTContext.js"
+    "context/constants.ts",
+    "context/NFTContext.ts",
+    "scripts/deploy.js"
   ],
   "exclude": ["node_modules"]
 }
